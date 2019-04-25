@@ -1,7 +1,5 @@
 """
-Obliczenia naukowe
-Projekt 2.: Redukcja kolorow
-Maciej Dzikowski
+color quantization using k-means clustering and floyd-steinberg dithering
 """
 
 import argparse
