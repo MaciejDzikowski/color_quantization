@@ -15,6 +15,7 @@ parser.add_argument('-n', '--num_colors', type=int, help='number of colors',
                     required=False)
 args = parser.parse_args()
 
+
 def c_q(pic, n_colors=16):
     """
     opening, converting image to array and starting process of quantization,
@@ -23,8 +24,7 @@ def c_q(pic, n_colors=16):
     try:
         im = np.array(Image.open(pic))[...,:3]
     except:
-        print('Nie mozna wczytac obrazu!')
-        quit()
+        raise Exception('Cannot load the image!')
 
     # changing the array into 2 dimensional array
     x, y, z = im.shape
@@ -112,6 +112,7 @@ def c_q(pic, n_colors=16):
 
     # saving the image as 'input_name' + '_new.png'
     new3.save('%s_new.png' % (str(pic)))
+
 
 if __name__ == '__main__':
     if args.num_colors:
