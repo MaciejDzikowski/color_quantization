@@ -8,13 +8,6 @@ import copy
 from PIL import Image
 from sklearn import cluster
 
-# using argparse
-parser = argparse.ArgumentParser(description='Color quantization')
-parser.add_argument('-f', '--file', help='input rgb image', required=True)
-parser.add_argument('-n', '--num_colors', type=int, help='number of colors',
-                    required=False)
-args = parser.parse_args()
-
 
 def c_q(pic, n_colors=16):
     """
@@ -115,6 +108,14 @@ def c_q(pic, n_colors=16):
 
 
 if __name__ == '__main__':
+    # using argparse
+    parser = argparse.ArgumentParser(description='Color quantization')
+    parser.add_argument('-f', '--file', help='input rgb image', required=True)
+    parser.add_argument('-n', '--num_colors', type=int,
+                        help='number of colors',
+                        required=False)
+    args = parser.parse_args()
+
     if args.num_colors:
         c_q(args.file, args.num_colors)
     else:
