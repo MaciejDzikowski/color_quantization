@@ -15,7 +15,7 @@ def c_q(pic, n_colors=16):
     then saving output
     """
     try:
-        im = np.array(Image.open(pic))[...,:3]
+        im = np.array(Image.open(pic))[..., :3]
     except:
         raise Exception('Cannot load the image!')
 
@@ -58,8 +58,8 @@ def c_q(pic, n_colors=16):
             test_b1 = im[y][x + 1][2] + err_b * 7 / 16.0
             test_pixel1 = test_r1 * 65536 + test_g1 * 256 + test_b1
             pixel1 = cluster_centers[colors.index(min(colors,
-                                                     key=lambda col:
-                                                     abs(col - test_pixel1)))]
+                                                      key=lambda col:
+                                                      abs(col - test_pixel1)))]
             new2[y][x + 1][0] = pixel1[0]
             new2[y][x + 1][1] = pixel1[1]
             new2[y][x + 1][2] = pixel1[2]
@@ -70,8 +70,8 @@ def c_q(pic, n_colors=16):
             test_b2 = im[y][x + 1][2] + err_b * 3 / 16.0
             test_pixel2 = test_r2 * 65536 + test_g2 * 256 + test_b2
             pixel2 = cluster_centers[colors.index(min(colors,
-                                                     key=lambda col:
-                                                     abs(col - test_pixel2)))]
+                                                      key=lambda col:
+                                                      abs(col - test_pixel2)))]
             new2[y + 1][x - 1][0] = pixel2[0]
             new2[y + 1][x - 1][1] = pixel2[1]
             new2[y + 1][x - 1][2] = pixel2[2]
@@ -82,8 +82,8 @@ def c_q(pic, n_colors=16):
             test_b3 = im[y][x + 1][2] + err_b * 5 / 16.0
             test_pixel3 = test_r3 * 65536 + test_g3 * 256 + test_b3
             pixel3 = cluster_centers[colors.index(min(colors,
-                                                     key=lambda col:
-                                                     abs(col - test_pixel3)))]
+                                                      key=lambda col:
+                                                      abs(col - test_pixel3)))]
             new2[y + 1][x][0] = pixel3[0]
             new2[y + 1][x][1] = pixel3[1]
             new2[y + 1][x][2] = pixel3[2]
@@ -94,8 +94,8 @@ def c_q(pic, n_colors=16):
             test_b4 = im[y][x + 1][2] + err_b * 1 / 16.0
             test_pixel4 = test_r4 * 65536 + test_g4 * 256 + test_b4
             pixel4 = cluster_centers[colors.index(min(colors,
-                                                     key=lambda col:
-                                                     abs(col - test_pixel4)))]
+                                                      key=lambda col:
+                                                      abs(col - test_pixel4)))]
             new2[y + 1][x + 1][0] = pixel4[0]
             new2[y + 1][x + 1][1] = pixel4[1]
             new2[y + 1][x + 1][2] = pixel4[2]
