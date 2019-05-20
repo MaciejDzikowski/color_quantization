@@ -111,7 +111,7 @@ def c_q(pic, n_colors=16):
     new3 = Image.fromarray(new2.astype('uint8'))
 
     # saving the image as 'input_name' + '_new.png'
-    new3.save('%s_new2c.png' % (str(pic)))
+    new3.save('%s_new.png' % (str(pic)))
 
 
 if __name__ == '__main__':
