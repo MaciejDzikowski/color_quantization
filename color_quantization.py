@@ -60,9 +60,9 @@ def c_q(pic, n_colors=16):
 
             # changing neighbouring pixels according to algorithm
             # right neighbour
-            test_r1 = new[y][x + 1][0] + err_r * 7 / 16.0
-            test_g1 = new[y][x + 1][1] + err_g * 7 / 16.0
-            test_b1 = new[y][x + 1][2] + err_b * 7 / 16.0
+            test_r1 = im[y][x + 1][0] + err_r * 7 / 16.0
+            test_g1 = im[y][x + 1][1] + err_g * 7 / 16.0
+            test_b1 = im[y][x + 1][2] + err_b * 7 / 16.0
             test_pixel1 = test_r1 * 65536 + test_g1 * 256 + test_b1
             pixel1 = cluster_centers[colors.index(min(colors,
                                                      key=lambda col:
@@ -72,9 +72,9 @@ def c_q(pic, n_colors=16):
             new2[y][x + 1][2] = pixel1[2]
 
             # bottom left-hand corner neighbour
-            test_r2 = new[y][x + 1][0] + err_r * 3 / 16.0
-            test_g2 = new[y][x + 1][1] + err_g * 3 / 16.0
-            test_b2 = new[y][x + 1][2] + err_b * 3 / 16.0
+            test_r2 = im[y][x + 1][0] + err_r * 3 / 16.0
+            test_g2 = im[y][x + 1][1] + err_g * 3 / 16.0
+            test_b2 = im[y][x + 1][2] + err_b * 3 / 16.0
             test_pixel2 = test_r2 * 65536 + test_g2 * 256 + test_b2
             pixel2 = cluster_centers[colors.index(min(colors,
                                                      key=lambda col:
@@ -84,9 +84,9 @@ def c_q(pic, n_colors=16):
             new2[y + 1][x - 1][2] = pixel2[2]
 
             # bottom neighbour
-            test_r3 = new[y][x + 1][0] + err_r * 5 / 16.0
-            test_g3 = new[y][x + 1][1] + err_g * 5 / 16.0
-            test_b3 = new[y][x + 1][2] + err_b * 5 / 16.0
+            test_r3 = im[y][x + 1][0] + err_r * 5 / 16.0
+            test_g3 = im[y][x + 1][1] + err_g * 5 / 16.0
+            test_b3 = im[y][x + 1][2] + err_b * 5 / 16.0
             test_pixel3 = test_r3 * 65536 + test_g3 * 256 + test_b3
             pixel3 = cluster_centers[colors.index(min(colors,
                                                      key=lambda col:
@@ -96,9 +96,9 @@ def c_q(pic, n_colors=16):
             new2[y + 1][x][2] = pixel3[2]
 
             # bottom right-hand corner neighbour
-            test_r4 = new[y][x + 1][0] + err_r * 1 / 16.0
-            test_g4 = new[y][x + 1][1] + err_g * 1 / 16.0
-            test_b4 = new[y][x + 1][2] + err_b * 1 / 16.0
+            test_r4 = im[y][x + 1][0] + err_r * 1 / 16.0
+            test_g4 = im[y][x + 1][1] + err_g * 1 / 16.0
+            test_b4 = im[y][x + 1][2] + err_b * 1 / 16.0
             test_pixel4 = test_r4 * 65536 + test_g4 * 256 + test_b4
             pixel4 = cluster_centers[colors.index(min(colors,
                                                      key=lambda col:
@@ -111,7 +111,7 @@ def c_q(pic, n_colors=16):
     new3 = Image.fromarray(new2.astype('uint8'))
 
     # saving the image as 'input_name' + '_new.png'
-    new3.save('%s_new.png' % (str(pic)))
+    new3.save('%s_new2c.png' % (str(pic)))
 
 
 if __name__ == '__main__':
